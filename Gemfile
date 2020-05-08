@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Devise Gem for authentication
 gem 'devise' 
+# Use iex-client for stocks API
+gem 'iex-ruby-client'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
