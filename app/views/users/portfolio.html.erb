@@ -10,3 +10,9 @@
 
 <div id="result">
 </div>
+
+<% if @user_stocks%>
+  <%= render  "user_stocks/list" %>
+<% else %>
+  <p>You currently have no stocks</p>
+<% end %>

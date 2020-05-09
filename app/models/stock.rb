@@ -3,7 +3,7 @@ class Stock < ApplicationRecord
   has_many :user_stocks
   has_many :users, through: :user_stocks
 
-  validates :name, :symbol, presence :true
+  validates :name, :symbol, presence: true
 
   def self.new_lookup(symbol)
     client = IEX::Api::Client.new(
@@ -18,6 +18,11 @@ class Stock < ApplicationRecord
      return nil
     end
     
+  end
+
+
+  def self.check_db(ticker)
+    where(symbol: ticker).first
   end
 
 end
