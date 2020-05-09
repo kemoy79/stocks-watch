@@ -1,0 +1,12 @@
+<h1>Portfolio Page</h1>
+
+<%= form_tag( stock_search_path, remote: true, method: :get) do |f| %>
+
+    <%= text_field_tag :symbol, params[:symbol], required: true%>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+
+<% end %>
+
+<div id="result">
+</div>

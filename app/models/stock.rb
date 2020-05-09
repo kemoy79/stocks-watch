@@ -7,6 +7,12 @@ class Stock < ApplicationRecord
       endpoint: 'https://sandbox.iexapis.com/v1'
     )
 
-    client.price(symbol)
+    begin
+      new(name: client.company(symbol).company_name, symbol: symbol, last_price: client.price(symbol) )
+    rescue => exception
+     return nil
+    end
+    
   end
+
 end
