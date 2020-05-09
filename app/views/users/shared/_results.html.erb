@@ -1,10 +1,28 @@
 <%= render 'layouts/messages'%>
 
 <%if @stock%>
-    <div class="card-header">
+    <div class="alert alert-info alert-dismissible fade show ">
         <p>Company Name: <%= @stock.name %></p> 
         <p>Ticker: <%= @stock.symbol %></p> 
         <p>$<%= @stock.last_price %></p> 
-        <%= link_to  "Add Stock", user_stocks_path(user: current_user, symbol: @stock.symbol), class: "btn btn-xs btn-primary", method: :post %>
+        <% if current_user.can_add_stock?(@stock.symbol)%>
+            <%= link_to  "Add Stock", user_stocks_path(user: current_user, symbol: @stock.symbol), class: "btn btn-xs btn-primary", method: :post %>
+        <% else %>
+            <p>You are already
+                <% if !current_user.under_stock_limit? %>
+                    tracking maximum of <em>10</em> stocks.
+                <% end %>
+
+                <% if current_user.stock_in_portfolio?(@stock.symbol) %>
+                    tracking <%= @stock.name %>.
+                <% end %>
+            
+            
+            </p>
+        <% end %>
+
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 <% end %>

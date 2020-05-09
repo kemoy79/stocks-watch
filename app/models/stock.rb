@@ -13,7 +13,7 @@ class Stock < ApplicationRecord
     )
 
     begin
-      new(name: client.company(symbol).company_name, symbol: symbol, last_price: client.price(symbol) )
+      new(name: client.company(symbol).company_name, symbol: symbol.upcase, last_price: client.price(symbol) )
     rescue => exception
      return nil
     end
