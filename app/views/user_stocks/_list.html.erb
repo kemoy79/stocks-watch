@@ -14,7 +14,7 @@
       <td><%= stock.symbol%></td>
       <td><%= stock.name%></td>
       <td><%= stock.last_price%></td>
-      <td><button class="btn btn-danger">Action</button></td>
+      <td> <%= link_to  "Remove", user_stock_path(stock), method: :delete, data: {confirm: "Are you sure?"}, class: "bnt btn-sm btn-danger"%> </td>
     </tr>
   <% end %>
   </tbody>
