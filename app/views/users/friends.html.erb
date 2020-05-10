@@ -1,0 +1,19 @@
+<h1>My Friends</h1>
+
+
+<%= form_tag( friends_search_path, remote: true, method: :get) do |f| %>
+
+    <%= text_field_tag :friend, params[:friend], required: true %>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+
+<% end %>
+
+<div id="result">
+</div>
+
+<% if @friends%>
+  <%= render  "friends/list" %>
+<% else %>
+  <h3>You have no friends!</h3>
+<% end %>
