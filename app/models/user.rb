@@ -23,4 +23,17 @@ class User < ApplicationRecord
   def can_add_stock?(symbol)
     under_stock_limit? && !stock_in_portfolio?(symbol)
   end
+
+  def self.find_friend(field, param)
+    where("#{field} like ?", "%#{param.strip}%")
+  end
+
+  def exclude_current_user(users)
+    users.reject { |user| user.id == self.id }
+  end
+
+
+  def friends_with?(friend_id)
+    self.friends.where(id: friend_id).exists?
+  end
 end

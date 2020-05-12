@@ -10,7 +10,7 @@
   <%@friends.each do |friend|%>
     <tr> 
       <td><%= friend.email%></td>
-      <td> <%= link_to  "Unfriend", '#', method: :delete, data: {confirm: "Are you sure?"}, class: "bnt btn-sm btn-danger"%> </td>
+      <td> <%= link_to  "Unfriend", friendship_path(friend), method: :delete, data: {confirm: "Are you sure?"}, class: "bnt btn-sm btn-danger"%> </td>
     </tr>
   <% end %>
   </tbody>

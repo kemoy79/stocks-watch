@@ -10,8 +10,9 @@ class UsersController < ApplicationController
 
   def friend_search
     if params[:friend].present?
-      @friend = User.where(email: params[:friend]).first
-      if @friend 
+      @friends = User.find_friend('email', params[:friend])
+      @friends = current_user.exclude_current_user(@friends)
+      if !@friends.empty? 
         respond_to do |format|
           format.js { render partial: 'friends/result'  }
         end

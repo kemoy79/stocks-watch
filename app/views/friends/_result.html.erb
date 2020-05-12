@@ -1,5 +1,19 @@
 <%= render 'layouts/messages'%>
 
-<% if @friend %>
-  <%= @friend.email %>
+<% if @friends %>
+  <div class="alert alert-info alert-dismissible fade show ">
+    <% @friends.each do |friend| %>
+      <p> <%= friend.email %> 
+        <%= link_to  "View Profile", '#', class: "btn btn-sm btn-primary" %>
+        <% if !current_user.friends_with?(friend.id)%>
+          <%= link_to  "Follow", friendships_path(friend: friend), method: :post, class: "btn btn-sm btn-primary"  %>
+        <% else %>
+          <span class="badge badge-secondary">Following</span>
+        <% end %>
+      </p>
+    <% end %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 <% end %>
