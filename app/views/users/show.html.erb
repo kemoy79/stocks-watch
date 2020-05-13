@@ -1,0 +1,7 @@
+<h1><%= @user.email%></h1>
+
+<% if @user_stocks %>
+  <%= render  "user_stocks/list" %>
+<% else%>
+  <p>User Has no stocks</p>
+<% end %>

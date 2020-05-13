@@ -1,8 +1,8 @@
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th scope="col">Email</th>
-      <th scope="col">Action</th>
+      <th>Email</th>
+      <th colspan="2"class="text-center" >Action</th>
     </tr>
   </thead>
   <tbody>
@@ -11,6 +11,7 @@
     <tr> 
       <td><%= friend.email%></td>
       <td> <%= link_to  "Unfriend", friendship_path(friend), method: :delete, data: {confirm: "Are you sure?"}, class: "bnt btn-sm btn-danger"%> </td>
+      <td> <%= link_to  "View Profile", user_path(friend), class: "btn btn-sm btn-primary" %></td>
     </tr>
   <% end %>
   </tbody>

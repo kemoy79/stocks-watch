@@ -4,7 +4,7 @@
   <div class="alert alert-info alert-dismissible fade show ">
     <% @friends.each do |friend| %>
       <p> <%= friend.email %> 
-        <%= link_to  "View Profile", '#', class: "btn btn-sm btn-primary" %>
+        <%= link_to  "View Profile", user_path(friend), class: "btn btn-sm btn-primary" %>
         <% if !current_user.friends_with?(friend.id)%>
           <%= link_to  "Follow", friendships_path(friend: friend), method: :post, class: "btn btn-sm btn-primary"  %>
         <% else %>
