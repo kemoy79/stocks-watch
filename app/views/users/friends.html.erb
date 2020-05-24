@@ -1,9 +1,14 @@
+<style>
+  .table{
+    background: white;
+  }
+</style>
 <h1>My Friends</h1>
 
 
-<%= form_tag( friends_search_path, remote: true, method: :get) do |f| %>
+<%= form_tag( friends_search_path, remote: true, method: :get, class: "form-inline my-2 my-lg-0 pb-2") do |f| %>
 
-    <%= text_field_tag :friend, params[:friend], required: true %>
+    <%= text_field_tag :friend, params[:friend], required: true, class:"form-control mr-sm-2" %>
 
     <button type="submit" class="btn btn-primary">Search</button>
 

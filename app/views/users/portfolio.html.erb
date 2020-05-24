@@ -1,8 +1,8 @@
 <h1>Portfolio Page</h1>
 
-<%= form_tag( stock_search_path, remote: true, method: :get) do |f| %>
+<%= form_tag( stock_search_path, remote: true, method: :get, class: "form-inline my-2 my-lg-0 pb-2") do |f| %>
 
-    <%= text_field_tag :symbol, params[:symbol], required: true%>
+    <%= text_field_tag :symbol, params[:symbol], required: true, class:"form-control mr-sm-2"%>
 
     <button type="submit" class="btn btn-primary">Search</button>
 

@@ -3,11 +3,24 @@
   <head>
     <title>StocksWatch</title>
      <%= favicon_link_tag %>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+
+        body{
+          background: url('assets/bg.jpg') no-repeat center center fixed; 
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
   </head>
 
   <body>
